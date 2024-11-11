@@ -21,9 +21,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "types": ["naive-ui/volar"],
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*.ts",

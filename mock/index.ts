@@ -1,17 +1,22 @@
+import Mock from 'mockjs';
+
+const res = Mock.mock({
+  id: '@id',
+  username: 'Admin',
+  date: '@date',
+  avatar: '@image("200x200", "red", "#fff", "avatar")',
+  description: '熊越是傻逼啊!',
+});
+
 export default [
   {
-    url: '/api/getCaptchaCode',
-    method: 'post',
+    url: '/dev-api/user/userinfo',
+    method: 'get',
     response: () => {
       return {
-        status: {
-          error_code: 0,
-          error_msg: 'success',
-        },
-        data: {
-          code_key: '6012e9ba65b442d2e5e7fec6e8eabcfd',
-          code: 'scfg',
-        },
+        code: 200,
+        data: res,
+        msg: '查询成功!',
       };
     },
   },

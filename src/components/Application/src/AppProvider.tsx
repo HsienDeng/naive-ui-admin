@@ -1,6 +1,7 @@
 import { defineComponent, toRefs } from 'vue';
 import { createAppProviderContext } from '@/hooks/core/useAppContext.ts';
 import { prefixCls } from '@/settings/designSetting.ts';
+import { useMessage } from 'naive-ui';
 
 export default defineComponent({
   props: {
@@ -15,6 +16,8 @@ export default defineComponent({
     createAppProviderContext({
       prefixCls,
     });
+
+    window['$message'] = useMessage();
 
     return () => {
       return <>{slots.default && slots.default()}</>;

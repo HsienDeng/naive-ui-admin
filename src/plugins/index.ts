@@ -1,3 +1,3 @@
-import setupAppComponent from '@/plugins/useAppComponent.ts';
+import setupAppComponent from '@/plugins/useComponent.ts';
 
 export { setupAppComponent };

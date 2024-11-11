@@ -3,7 +3,7 @@
     <div class="login-header w-full fixed my-5">
       <div class="m-auto w-[75%] flex items-center">
         <img src="@/assets/vast.svg" alt="logo" class="w-10" />
-        <div class="text-white text-2xl font-bold ml-3">{{title}}</div>
+        <div class="text-white text-2xl font-bold ml-3">{{ title }}</div>
       </div>
     </div>
     <div

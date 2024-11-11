@@ -23,9 +23,11 @@
 <!-- :locale="enUS" :date-locale="dateEnUS" -->
 <template>
   <NConfigProvider :theme="getTheme" :theme-overrides="themeOverrides">
-    <AppProvider>
-      <router-view />
-    </AppProvider>
+    <n-message-provider>
+      <AppProvider>
+        <router-view />
+      </AppProvider>
+    </n-message-provider>
   </NConfigProvider>
 </template>
 

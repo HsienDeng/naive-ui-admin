@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
@@ -16,58 +16,76 @@ function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
 
-export default defineConfig({
-  resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: pathResolve('src') + '/',
-      },
-    ],
-    dedupe: ['vue'],
-  },
-  plugins: [
-    vue(),
-    vueJsx(),
-    viteMockServe({
-      mockPath: './mock/', //mock文件夹的路径
-    }),
-    UnoCss({
-      presets: [presetUno(), presetAttributify(), presetIcons()],
-    }),
-    createSvgIconsPlugin({
-      iconDirs: [pathResolve('src/assets/icons')],
-      symbolId: 'icon-[dir]-[name]',
-      svgoOptions: {
-        plugins: [
-          {
-            name: 'removeAttrs',
-            params: {
-              attrs: ['fill', 'stroke'],
-            },
-          },
-        ],
-      },
-    }),
-    AutoImport({
-      imports: [
-        'vue',
-        {
-          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+
+  return {
+    server: {
+      host: '0.0.0.0',
+      port: 8080,
+      strictPort: true,
+      proxy: {
+        [env.VITE_GLOB_API_URL]: {
+          target: 'http://localhost:9191',
+          changeOrigin: true,
+          ws: true,
+          rewrite: (path) => path.replace(new RegExp('^' + env.VITE_GLOB_API_URL), ''),
         },
-      ],
-    }),
-    Components({
-      resolvers: [NaiveUiResolver()],
-    }),
-  ],
-  css: {
-    preprocessorOptions: {
-      less: {
-        modifyVars: {},
-        javascriptEnabled: true,
-        additionalData: `@import "src/styles/var.less";`,
       },
     },
-  },
+    resolve: {
+      alias: [
+        {
+          find: '@',
+          replacement: pathResolve('src') + '/',
+        },
+      ],
+      dedupe: ['vue'],
+    },
+    plugins: [
+      vue(),
+      vueJsx(),
+      viteMockServe({
+        mockPath: 'mock',
+        enable: true,
+      }),
+      UnoCss({
+        presets: [presetUno(), presetAttributify(), presetIcons()],
+      }),
+      createSvgIconsPlugin({
+        iconDirs: [pathResolve('src/assets/icons')],
+        symbolId: 'icon-[dir]-[name]',
+        svgoOptions: {
+          plugins: [
+            {
+              name: 'removeAttrs',
+              params: {
+                attrs: ['fill', 'stroke'],
+              },
+            },
+          ],
+        },
+      }),
+      AutoImport({
+        imports: [
+          'vue',
+          {
+            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+          },
+        ],
+      }),
+      Components({
+        resolvers: [NaiveUiResolver()],
+      }),
+    ],
+    css: {
+      preprocessorOptions: {
+        less: {
+          modifyVars: {},
+          javascriptEnabled: true,
+          additionalData: `@import "src/styles/var.less";`,
+        },
+      },
+    },
+  };
 });

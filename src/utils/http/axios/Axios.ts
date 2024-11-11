@@ -52,7 +52,6 @@ export class VAxios {
   request<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
     let conf: AxiosRequestConfig = cloneDeep(config);
     const transform = this.getTransform();
-
     const { requestOptions } = this.options;
 
     const opt: RequestOptions = Object.assign({}, requestOptions, options);
@@ -65,6 +64,7 @@ export class VAxios {
     // 这里重新 赋值成最新的配置
     // @ts-ignore
     conf.requestOptions = opt;
+    console.log(config);
 
     return new Promise((resolve, reject) => {
       this.axiosInstance
@@ -227,8 +227,10 @@ export class VAxios {
     const axiosCanceler = new AxiosCanceler();
 
     // 请求拦截器配置处理
+    // @ts-ignore
     this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
       const {
+        // @ts-ignore
         headers: { ignoreCancelToken },
       } = config;
       const ignoreCancel =

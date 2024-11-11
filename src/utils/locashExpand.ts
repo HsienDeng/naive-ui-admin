@@ -2,7 +2,7 @@
  * lodash扩展
  */
 
-import _ from 'lodash-es';
+import { transform, isEqual, isObject } from 'lodash-es';
 
 /**
  * Recursive diff between two object
@@ -12,9 +12,9 @@ import _ from 'lodash-es';
  */
 export function difference(object, base) {
   function changes(object, base) {
-    return _.transform(object, function (result: any, value, key) {
-      if (!_.isEqual(value, base[key])) {
-        result[key] = _.isObject(value) && _.isObject(base[key]) ? changes(value, base[key]) : value;
+    return transform(object, function (result: any, value, key) {
+      if (!isEqual(value, base[key])) {
+        result[key] = isObject(value) && isObject(base[key]) ? changes(value, base[key]) : value;
       }
     });
   }
@@ -44,7 +44,7 @@ export function isFunction<T = Function>(val: unknown): val is T {
 export function deepMerge<T = any>(src: any = {}, target: any = {}): T {
   let key: string;
   for (key in target) {
-    src[key] = _.isObject(src[key]) ? deepMerge(src[key], target[key]) : (src[key] = target[key]);
+    src[key] = isObject(src[key]) ? deepMerge(src[key], target[key]) : (src[key] = target[key]);
   }
   return src;
 }

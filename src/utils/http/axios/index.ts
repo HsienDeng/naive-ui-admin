@@ -16,7 +16,6 @@ import { deepMerge, isUrl } from '@/utils/locashExpand.ts';
 import { RequestOptions, Result, CreateAxiosOptions } from './types';
 
 // const globSetting = useGlobSetting();
-// const urlPrefix = globSetting.urlPrefix || '';
 
 import router from '@/router';
 // import { storage } from '@/utils/Storage';
@@ -113,12 +112,8 @@ const transform: AxiosTransform = {
 
   // 请求之前处理config
   beforeRequestHook: (config, options) => {
-    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix } = options;
+    const { apiUrl, joinParamsToUrl, formatDate, joinTime = true } = options;
     const isUrlStr = isUrl(config.url as string);
-
-    if (!isUrlStr && joinPrefix) {
-      config.url = `${urlPrefix}${config.url}`;
-    }
 
     if (!isUrlStr && apiUrl && isString(apiUrl)) {
       config.url = `${apiUrl}${config.url}`;
@@ -211,7 +206,6 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
   return new VAxios(
     deepMerge(
       {
-        timeout: 60 * 1000,
         authenticationScheme: '',
         // 接口前缀
         // prefixUrl: urlPrefix,
@@ -251,7 +245,10 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
   );
 }
 
-export const http = createAxios();
+export const http = createAxios({
+  baseURL: import.meta.env.VITE_GLOB_API_URL,
+  timeout: 60 * 1000,
+});
 
 // 项目，多个不同 api 地址，直接在这里导出多个
 // src/api ts 里面接口，就可以单独使用这个请求，
