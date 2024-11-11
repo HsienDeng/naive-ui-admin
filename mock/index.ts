@@ -10,6 +10,24 @@ const res = Mock.mock({
 
 export default [
   {
+    url: '/dev-api/login',
+    method: 'post',
+    response: (data) => {
+      if (data.body.username !== 'admin') {
+        return {
+          code: 400,
+          msg: '账号密码错误!',
+          data: null,
+        };
+      }
+      return {
+        code: 200,
+        msg: '登录成功',
+        data: data.body,
+      };
+    },
+  },
+  {
     url: '/dev-api/user/userinfo',
     method: 'get',
     response: () => {

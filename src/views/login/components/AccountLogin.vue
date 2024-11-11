@@ -1,9 +1,9 @@
 <template>
-  <n-form v-show="isShowNode" :model="formState" :show-label="false" name="basic">
-    <n-form-item name="username">
+  <n-form ref="formRef" :rules="formRules" v-show="isShowNode" :model="formState" :show-label="false" name="basic">
+    <n-form-item path="username">
       <n-input v-model:value="formState.username" placeholder="账号" size="large" />
     </n-form-item>
-    <n-form-item name="password">
+    <n-form-item path="password">
       <n-input
         v-model:value="formState.password"
         placeholder="密码"
@@ -26,9 +26,11 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, reactive } from 'vue';
+  import { computed, reactive, ref } from 'vue';
+  import type { FormInst } from 'naive-ui';
   import { useLoginState, StateEnum } from '../components/loginPreference';
   import { useRouter } from 'vue-router';
+  import { login } from '@/api/user';
 
   interface FormState {
     username: string;
@@ -37,15 +39,37 @@
   }
 
   const router = useRouter();
+  const formRef = ref<FormInst | null>(null);
   const formState = reactive<FormState>({
     username: '',
     password: '',
     remember: true,
   });
+  const formRules = {
+    username: {
+      required: true,
+      message: '请输入账号',
+      trigger: 'blur',
+    },
+    password: {
+      required: true,
+      message: '请输入密码',
+      trigger: 'blur',
+    },
+  };
 
-  const onFinish = (values: any) => {
-    localStorage.setItem('token', JSON.stringify(values));
-    router.push('/');
+  const onFinish = () => {
+    formRef.value?.validate((errors) => {
+      console.log(errors);
+      if (!errors) {
+        login(formState).then((res) => {
+          localStorage.setItem('token', JSON.stringify(res));
+          router.push('/');
+        });
+      } else {
+        console.log(errors);
+      }
+    });
   };
 
   // 判断是否显示当前组件
