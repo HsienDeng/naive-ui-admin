@@ -24,7 +24,7 @@
             </n-dropdown>
           </div>
           <div class="item">
-            <n-avatar src="https://i0.imgs.ovh/2024/02/17/oo6uv.png" />
+            <n-avatar src="/public/images/avatar.jpg" />
             <div class="name">Admin</div>
           </div>
           <div class="icon-item item" @click="showSettingDrawer">
@@ -45,6 +45,7 @@
   import { useDesign } from '@/hooks/useDesign';
   import { LANG_ENUM } from '@/enums/lang.ts';
   import { i18n } from '@/locales/setupLocales.ts';
+  import SvgIcon from '@/components/SvgIcon';
 
   const { prefixCls } = useDesign('layout-header');
   const settingStore = useProjectSettingStore();

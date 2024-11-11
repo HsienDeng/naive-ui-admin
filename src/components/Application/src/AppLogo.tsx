@@ -19,10 +19,12 @@ export default defineComponent({
       return [prefixCls, 'flex'];
     });
 
+    const title = import.meta.env.VITE_GLOB_APP_TITLE;
+
     return () => (
       <div class={logoClass.value}>
         <img src="/src/assets/vast.svg" alt="logo" class="w-8" />
-        {!collapsed.value && <span class="ml-1 font-bold text-xl">VastAdminPro</span>}
+        {!collapsed.value && <span class="ml-1 font-bold text-xl">{title}</span>}
       </div>
     );
   },
