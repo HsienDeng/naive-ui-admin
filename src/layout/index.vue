@@ -19,7 +19,7 @@
       bordered
       :width="designSetting.siderWidth"
       :collapsed-width="64"
-      show-trigger="bar"
+      show-trigger
       collapse-mode="width"
       @update:collapsed="(event: boolean) => (designSetting.collapsed = event)"
     >

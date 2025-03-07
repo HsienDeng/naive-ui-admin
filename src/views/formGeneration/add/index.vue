@@ -140,10 +140,6 @@
       flex-direction: column;
     }
 
-    .custom-dragged {
-      padding-bottom: 40px;
-    }
-
     .generate-page-review-modal {
       position: absolute;
       z-index: 999;
@@ -166,6 +162,7 @@
 
   .generate-flow-code-container {
     top: 55px !important;
+    padding-bottom: 20px;
 
     .generate-flow-code-right {
       min-width: 20vw !important;
