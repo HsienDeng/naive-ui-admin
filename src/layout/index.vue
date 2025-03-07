@@ -36,15 +36,13 @@
   </n-layout>
 </template>
 
-<style scoped lang="less">
+<style lang="less">
   @prefix-cls: ~'@{namespace}-layout';
 
   .@{prefix-cls} {
     &-content {
-      //padding: 16px;
       height: calc(100% - 56px);
       box-sizing: border-box;
     }
   }
 </style>
-@/store/modules/projectSetting

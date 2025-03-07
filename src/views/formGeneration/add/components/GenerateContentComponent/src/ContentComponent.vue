@@ -190,7 +190,7 @@
 </script>
 
 <template>
-  <NCard id="contentComponentContainer" class="content-component-container h-100">
+  <NCard id="contentComponentContainer" class="content-component-container h-full">
     <div class="dragged-operation-middle">
       <span style="color: #f70b3c">*</span>
       表单操作不会自动保存! 请点击右上角保存按钮!
@@ -340,6 +340,6 @@
   </NCard>
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
   @import '../style/index.less';
 </style>

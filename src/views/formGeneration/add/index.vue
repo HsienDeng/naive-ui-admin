@@ -1,13 +1,13 @@
 <template>
-  <n-layout class="generate-flow-code-page">
+  <n-layout class="generate-flow-code-page h-full">
     <!--  头部区域开始  -->
     <n-layout-header bordered class="custom-page-header">
       <NPageHeader>
-        <template #extra> 操作区域 </template>
+        <template #extra> 操作区123域 </template>
       </NPageHeader>
     </n-layout-header>
     <!--  头部区域结束  -->
-    <n-layout position="absolute" class="generate-flow-code-container" has-sider>
+    <n-layout position="absolute" class="generate-flow-code-container" has-sider style="height: 100%">
       <!--  左侧组件区域开始  -->
       <n-layout-sider class="generate-flow-code-left" content-style="padding: 10px;" :native-scrollbar="false" bordered>
         <LeftComponent />
@@ -133,8 +133,17 @@
   });
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   .generate-flow-code-page {
+    .n-card__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .custom-dragged {
+      padding-bottom: 40px;
+    }
+
     .generate-page-review-modal {
       position: absolute;
       z-index: 999;
@@ -147,7 +156,6 @@
   }
 
   .custom-page-header {
-    //height: 64px;
     padding: 10px;
 
     .n-page-header {

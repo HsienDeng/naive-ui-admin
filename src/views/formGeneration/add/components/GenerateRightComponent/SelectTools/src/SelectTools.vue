@@ -13,7 +13,7 @@
         </div>
       </template>
     </NDynamicInput>
-    <Button text :icon="EditOutlined" @click="handleBatchEditOptions">批量编辑/添加</Button>
+    <n-button text @click="handleBatchEditOptions">批量编辑/添加</n-button>
     <n-modal
       v-model:show="showBatchEditOptionsModal"
       :mask-closable="false"

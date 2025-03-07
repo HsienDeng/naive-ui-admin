@@ -1,5 +1,5 @@
 <template>
-  <div class="dragged-item-tools w-100 h-100">
+  <div class="dragged-item-tools w-full h-full">
     <NSpace>
       <!-- copy -->
       <NButton type="primary" ghost tag="span" @click="handleCopyFunc">

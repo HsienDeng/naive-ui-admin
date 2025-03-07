@@ -9,38 +9,6 @@ export type BaseType = {
 
 export const componentConfig = ref<BaseType[]>([
   {
-    title: '通用组件',
-    config: [
-      {
-        label: '分割线',
-        component: 'NDivider',
-        disabled: false,
-        placeholder: '',
-        componentProps: {
-          dashed: false,
-          titlePlacement: 'center',
-          vertical: false,
-          title: '分割线',
-        },
-        options: [
-          {
-            label: '左对齐',
-            key: 'left',
-          },
-          {
-            label: '右对齐',
-            key: 'right',
-          },
-          {
-            label: '中间',
-            key: 'center',
-          },
-        ],
-        rule: { required: false, message: '', trigger: ['change'] },
-      },
-    ],
-  },
-  {
     title: '考试题型',
     config: [
       {
@@ -225,6 +193,6 @@ export const draggedProps = {
   handle: '.move',
   disabled: false,
   ghostClass: 'ghost',
-  class: 'w-100 h-100',
+  class: 'w-full h-full custom-dragged',
   'item-key': 'label',
 };
