@@ -3,7 +3,6 @@
   import { darkTheme } from 'naive-ui';
   import { useProjectSettingStore } from '@/store/modules/projectSetting';
   import { AppProvider } from '@/components/Application';
-  // import { zhCN, dateZhCN, enUS, dateEnUS } from 'naive-ui';
 
   const settingStore = useProjectSettingStore();
   // 深色主题切换

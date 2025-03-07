@@ -10,7 +10,7 @@ import { PageEnum } from '@/enums/pageEnum';
 // import { useGlobSetting } from '@/hooks/setting';
 
 import { isString } from 'lodash-es';
-import { deepMerge, isUrl } from '@/utils/locashExpand.ts';
+import { deepMerge, isUrl } from '@/utils/lodashExpand';
 // import { setObjToUrlParams } from '@/utils/urlUtils';
 
 import { RequestOptions, Result, CreateAxiosOptions } from './types';
