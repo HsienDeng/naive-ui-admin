@@ -17,8 +17,9 @@
       :collapsed="designSetting.collapsed"
       :native-scrollbar="false"
       bordered
+      :width="designSetting.siderWidth"
       :collapsed-width="64"
-      show-trigger
+      show-trigger="bar"
       collapse-mode="width"
       @update:collapsed="(event: boolean) => (designSetting.collapsed = event)"
     >
@@ -40,7 +41,7 @@
 
   .@{prefix-cls} {
     &-content {
-      padding: 16px;
+      //padding: 16px;
       height: calc(100% - 56px);
       box-sizing: border-box;
     }

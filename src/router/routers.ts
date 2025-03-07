@@ -6,35 +6,6 @@ const routes = [
     path: '/',
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    meta: {
-      title: '中控台',
-      icon: 'dashboard',
-    },
-    component: Layout,
-    children: [
-      {
-        path: 'main',
-        meta: {
-          title: '工作台',
-          icon: 'workbench',
-        },
-        name: 'DashboardMain',
-        component: () => import('@/views/dashboard/main/index.vue'),
-      },
-      {
-        path: 'main',
-        meta: {
-          title: '监控台',
-          icon: 'console',
-        },
-        name: 'DashboardConsole',
-        component: () => import('@/views/dashboard/console/index.vue'),
-      },
-    ],
-  },
-  {
     path: '/login',
     name: 'Login',
     meta: {
@@ -43,6 +14,66 @@ const routes = [
       hidden: true,
     },
     component: () => import('@/views/login/login.vue'),
+  },
+  {
+    path: '/dashboard',
+    component: Layout,
+    children: [
+      {
+        path: 'main',
+        meta: {
+          title: '数据看板',
+          icon: 'workbench',
+        },
+        name: 'DashboardMain',
+        component: () => import('@/views/dashboard/main/index.vue'),
+      },
+    ],
+  },
+  {
+    path: '/formGeneration',
+    name: 'formGeneration',
+    component: Layout,
+    children: [
+      {
+        path: 'list',
+        name: 'view-list',
+        meta: {
+          title: '表单生成',
+          icon: 'file-code',
+        },
+        component: () => import('@/views/formGeneration/add/index.vue'),
+      },
+    ],
+  },
+  {
+    path: '/component',
+    name: 'UseComponent',
+    component: Layout,
+    meta: {
+      title: '组件使用',
+      icon: 'add-four',
+    },
+    children: [
+      {
+        path: 'icon',
+        name: 'Icon',
+        meta: {
+          title: '图标',
+          icon: 'hamburger-button',
+        },
+        component: () => import('@/views/useComponent/icon/icon.vue'),
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        meta: {
+          title: '表格',
+          icon: 'table-file',
+        },
+        component: () => import('@/views/useComponent/table/table.vue'),
+      },
+    ],
   },
   {
     path: '/system',

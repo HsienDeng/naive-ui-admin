@@ -1,15 +1,7 @@
 <template>
-  <div>
-    {{ $t('main.logout') }}
-  </div>
+  <div> </div>
 </template>
 
-<script setup lang="ts">
-  import { testRequest } from '@/api/sys';
-
-  testRequest().then((res) => {
-    console.log(res);
-  });
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss"></style>

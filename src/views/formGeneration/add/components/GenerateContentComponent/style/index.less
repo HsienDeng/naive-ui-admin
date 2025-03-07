@@ -1,0 +1,102 @@
+.content-component-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .dragged-title .title,
+  .dragged-title .remark {
+    width: 85%; margin: auto;
+  }
+}
+
+.form-item {
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-item {
+  .dragged-item-content-edit {
+    display: none;
+  }
+}
+
+.active-form-item {
+  .dragged-item-content-move {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    cursor: move;
+    border-top: 8px solid #2b85e4;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .dragged-item-content-edit {
+    display: block;
+    position: absolute;
+    height: 25px;
+    z-index: 9;
+    top: -25px;
+    right: 0;
+  }
+}
+
+.n-form-item-label {
+  //cursor: move;
+}
+
+.n-form-item {
+  width: 100% !important;
+}
+
+.dragged-operation-middle {
+  background-color: #f4f5f5;
+  line-height: 30px;
+  padding: 0 15px;
+  margin-bottom: 5px;
+}
+
+.dragged-item-content {
+  padding: 15px;
+}
+
+.dragged-item-content:hover {
+  background: #f3f9ff;
+
+  .dragged-item-content-edit {
+    display: block;
+    position: absolute;
+    height: 25px;
+    z-index: 9;
+    top: -25px;
+    right: 0;
+  }
+}
+
+.dragged-empty {
+  position: absolute;
+  top: 350px;
+  width: 100%;
+
+  .dragged-empty-text {
+    font-size: 2vmin;
+    color: #1890ff;
+  }
+
+}
+
+.dragged-item-content-label {
+  display: flex;
+  align-items: center;
+}
+
+.dragged-item-rich-text{
+  border: 1px dotted #ffffff;
+}
+
+
+.dragged-item-rich-text:hover{
+  border: 1px dotted #d8d8d8;
+}

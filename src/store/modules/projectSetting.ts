@@ -12,6 +12,8 @@ interface ProjectSettingState {
   collapsed: boolean;
   // 是否开启暗黑模式
   darkTheme: boolean;
+  // 菜单栏宽度
+  siderWidth: number;
 }
 
 /**
@@ -30,6 +32,7 @@ export const useProjectSettingStore = defineStore({
       themeColor: appThemeList[0],
       collapsed: false,
       darkTheme: false,
+      siderWidth: 232,
     };
   },
   actions: {

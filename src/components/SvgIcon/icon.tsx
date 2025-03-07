@@ -20,11 +20,6 @@ export default defineComponent({
       type: String,
       default: '',
     },
-    // 如果设置了，鼠标移入将会设置该颜色
-    hoverColor: {
-      type: String,
-      default: '',
-    },
     // 填充颜色
     fill: {
       type: String,
