@@ -35,4 +35,3 @@
     height: 100%;
   }
 </style>
-@/store/modules/projectSetting

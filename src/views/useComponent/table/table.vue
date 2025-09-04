@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div> 表格 </div>
+  <div class="app-container"> 表格 </div>
 </template>
 
 <style scoped lang="scss"></style>

@@ -3,7 +3,7 @@
     <!--  头部区域开始  -->
     <n-layout-header bordered class="custom-page-header">
       <NPageHeader>
-        <template #extra> 操作区123域 </template>
+<!--        <template #extra> 操作区123域 </template>-->
       </NPageHeader>
     </n-layout-header>
     <!--  头部区域结束  -->

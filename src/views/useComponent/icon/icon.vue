@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <div class="icon">
+  <div class="app-container icon">
     <h2>图标 Icon</h2>
     <div>
       推荐使用SVG，导入至项目 /src/assets/icons 中，通过SVG的文件名使用，这里推荐字节的
