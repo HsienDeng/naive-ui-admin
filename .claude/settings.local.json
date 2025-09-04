@@ -5,7 +5,8 @@
       "Bash(dir)",
       "Bash(dir:*)",
       "Read(/C:\\a_working\\my_project\\naive-admin-pro\\src\\components\\BasicTable\\src/**)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
