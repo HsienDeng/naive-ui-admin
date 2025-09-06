@@ -7,13 +7,16 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BasicForm: typeof import('@/components/BasicForm/src/BasicForm.vue')['default']
+    BasicForm: typeof import('./src/components/BasicForm/src/BasicForm.vue')['default']
+    ColumnSetting: typeof import('./src/components/BasicTable/src/components/settings/ColumnSetting.vue')['default']
+    EditableCell: typeof import('./src/components/BasicTable/src/components/editable/EditableCell.vue')['default']
     NAlert: typeof import('naive-ui')['NAlert']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NCheckbox: typeof import('naive-ui')['NCheckbox']
     NCheckboxGroup: typeof import('naive-ui')['NCheckboxGroup']
+    NCol: typeof import('naive-ui')['NCol']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDatePicker: typeof import('naive-ui')['NDatePicker']
     NDivider: typeof import('naive-ui')['NDivider']
@@ -24,6 +27,7 @@ declare module 'vue' {
     NEl: typeof import('naive-ui')['NEl']
     NEmpty: typeof import('naive-ui')['NEmpty']
     NFlex: typeof import('naive-ui')['NFlex']
+    NForm: typeof import('naive-ui')['NForm']
     NFormItem: typeof import('naive-ui')['NFormItem']
     NGi: typeof import('naive-ui')['NGi']
     NGrid: typeof import('naive-ui')['NGrid']
@@ -41,6 +45,7 @@ declare module 'vue' {
     NPageHeader: typeof import('naive-ui')['NPageHeader']
     NRadio: typeof import('naive-ui')['NRadio']
     NRadioGroup: typeof import('naive-ui')['NRadioGroup']
+    NRow: typeof import('naive-ui')['NRow']
     NSelect: typeof import('naive-ui')['NSelect']
     NSpace: typeof import('naive-ui')['NSpace']
     NSplit: typeof import('naive-ui')['NSplit']
@@ -49,5 +54,7 @@ declare module 'vue' {
     RichText: typeof import('./src/components/RichText/src/RichText.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Table: typeof import('./src/components/BasicTable/src/Table.vue')['default']
+    TableAction: typeof import('./src/components/BasicTable/src/components/TableAction.vue')['default']
   }
 }
